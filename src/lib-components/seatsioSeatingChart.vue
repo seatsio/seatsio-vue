@@ -6,15 +6,14 @@ export default {
     this.createAndRenderChart()
   },
   props: {
-    divId: {type: String, default: 'chart'},
+    id: {type: String, default: 'chart'},
     region: {type: String, default: 'eu'},
     chartJsUrl: {type: String, default: 'https://cdn-{region}.seatsio.net/chart.js'}
   },
   methods: {
     createAndRenderChart: async function () {
       const seatsio = await this.getSeatsio()
-      const config = this.extractConfigFromProps()
-      config.divId = this.divId
+      const config = {divId: this.id, ...this.$attrs}
       this.chart = this.createChart(seatsio, config).render()
       /* TODO
       if (this.props.onRenderStarted) {
@@ -44,10 +43,6 @@ export default {
         document.head.appendChild(script)
       })
     },
-    extractConfigFromProps: function () {
-      let {id, className, onRenderStarted, chartJsUrl, region, ...config} = this.$attrs
-      return config
-    },
     createChart: function (seatsio, config) {
       // noinspection JSUnresolvedFunction
       return new seatsio.SeatingChart(config)
@@ -58,5 +53,5 @@ export default {
 </script>
 
 <template>
-  <div id="chart"></div>
+  <div v-bind:id="id"></div>
 </template>

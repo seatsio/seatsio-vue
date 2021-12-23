@@ -11,9 +11,16 @@ export default Vue.extend({
 <template>
   <div id="app">
     <SeatsioSeatingChart
+        id="myChart"
         publicKey="publicDemoKey"
         event="theatreEvent"
         region="eu"
     />
   </div>
 </template>
+
+<style scoped>
+#myChart {
+  height: 600px;
+}
+</style>
