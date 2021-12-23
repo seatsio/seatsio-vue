@@ -4,7 +4,7 @@ import SeatsioSeatingChart from "@/lib-components/seatsioSeatingChart";
 
 export default Vue.extend({
   name: 'ServeDev',
-  components: {SeatsioSeatingChart},
+  components: {SeatsioSeatingChart}
 });
 </script>
 
@@ -13,7 +13,8 @@ export default Vue.extend({
     <SeatsioSeatingChart
         id="myChart"
         publicKey="publicDemoKey"
-        event="theatreEvent"
+        event="smallTheatreEvent"
+        objectColor="() => 'blue'"
         region="eu"
     />
   </div>
