@@ -1,5 +1,5 @@
 <script>
-import SeatsioEmbeddable from './seatsioEmbeddable'
+import SeatsioEmbeddable from './seatsioEmbeddable.vue'
 
 export default {
     mixins: [SeatsioEmbeddable],
