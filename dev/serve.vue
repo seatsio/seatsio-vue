@@ -47,45 +47,47 @@ export default Vue.extend({
         @onRenderStarted="onRenderStarted"
         @onObjectClicked="onObjectClicked"
     />
+    <SeatsioDesigner
+      v-if="selectedComponent === 'chartDesigner'"
+      event="437fd038-ba0c-42aa-9ba9-e06bd5b790a3"
+      id="myChartDesigner"
+      workspaceKey="publicDemoKey"
+      mode="readOnly"
+      :messages="messages"
+      :tooltipInfo="tooltipInfo"
+      @onRenderStarted="onRenderStarted"
+      @onObjectClicked="onObjectClicked"
+      chartKey="0bcf8295-0063-486b-85fe-77b8d85008b5"
+    />
     <SeatsioChartManager
         v-if="selectedComponent === 'chartManager'"
-        workspaceKey="publicDemoKey"
+        id="myChartManager"
         mode="manageRulesets"
         :messages="messages"
         :tooltipInfo="tooltipInfo"
         @onRenderStarted="onRenderStarted"
         @onObjectClicked="onObjectClicked"
-    />
-    <SeatsioDesigner
-        v-if="selectedComponent === 'chartDesigner'"
-        event="[Your event key]"
-        id="myChartDesigner"
-        workspaceKey="publicDemoKey"
-        mode="readOnly"
-        :messages="messages"
-        :tooltipInfo="tooltipInfo"
-        @onRenderStarted="onRenderStarted"
-        @onObjectClicked="onObjectClicked"
+        workspaceKey="[Your workspace key]"
         chartKey="[Your chart key]"
+        secretKey="[Your secret key]"
     />
     <SeatsioEventManager
         v-if="selectedComponent === 'eventManager'"
-        id="myChartDesigner"
-        workspaceKey="publicDemoKey"
+        id="myEventManager"
         mode="manageRulesets"
         :messages="messages"
         :tooltipInfo="tooltipInfo"
         @onRenderStarted="onRenderStarted"
         @onObjectClicked="onObjectClicked"
+        workspaceKey="[Your workspace key]"
+        chartKey="[Your chart key]"
+        secretKey="[Your secret key]"
     />
   </div>
 </template>
 
 <style scoped>
-#myChart {
-  height: 600px;
-}
-#myChartDesigner {
+#myChart, #myChartDesigner, #myChartManager, #myEventManager {
   height: 100vh
 }
 </style>
