@@ -3,11 +3,11 @@ import SeatsioEmbeddable from './seatsioEmbeddable'
 
 export default {
   mixins: [SeatsioEmbeddable],
-  name: 'seatsioSeatingChart',
+  name: 'seatsioDesigner',
   methods: {
-    createChart: function (seatsio, config) {
+     createChart: function (seatsio, config) {
       // noinspection JSUnresolvedFunction
-      return new seatsio.SeatingChart(config)
+      return new seatsio.SeatingChartDesigner(config)
     }
   }
 }
