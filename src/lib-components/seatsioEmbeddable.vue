@@ -21,7 +21,8 @@
       region: {type: String, default: 'eu'},
       showFullscreenButton: {type: Boolean},
       tooltipInfo: {type: Function},
-      chartKey: {type: String}
+      chartKey: {type: String},
+      secretKey: {type: String}
     },
     methods: {
       createAndRenderChart: async function () {
