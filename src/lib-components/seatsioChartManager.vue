@@ -6,8 +6,8 @@ export default {
     name: 'seatsioChartManager',
     methods: {
         finaliseProps: function (props) {
-            const { chartJsUrl, id, region, showFullscreenButton, ...finalProps } = props
-            return finalProps
+            const { chartKey, chartJsUrl, id, region, showFullscreenButton, ...finalProps } = props
+            return { chart: chartKey, ...finalProps }
         },
         createChart: (seatsio, config) => {
           // noinspection JSUnresolvedFunction
