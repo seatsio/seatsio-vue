@@ -4,7 +4,16 @@ import SeatsioSeatingChart from "@/lib-components/seatsioSeatingChart";
 
 export default Vue.extend({
   name: 'ServeDev',
-  components: {SeatsioSeatingChart}
+  components: {SeatsioSeatingChart},
+  data: () => ({
+    messages: { clickToSelect: 'Click to pick'},
+    objectColor: () => 'grey',
+    tooltipInfo: () => 'My custom info'
+  }),
+  methods: {
+    onRenderStarted: chart => console.log("Render started", chart),
+    onObjectClicked: clickedObject => console.log("Object clicked", clickedObject)
+  },
 });
 </script>
 
@@ -12,10 +21,14 @@ export default Vue.extend({
   <div id="app">
     <SeatsioSeatingChart
         id="myChart"
-        publicKey="publicDemoKey"
+        workspaceKey="publicDemoKey"
         event="smallTheatreEvent"
-        objectColor="() => 'blue'"
         region="eu"
+        :messages="messages"
+        :objectColor="objectColor"
+        :tooltipInfo="tooltipInfo"
+        @onRenderStarted="onRenderStarted"
+        @onObjectClicked="onObjectClicked"
     />
   </div>
 </template>
