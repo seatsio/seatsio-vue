@@ -1,41 +1,40 @@
 <script>
-import Vue from 'vue'
 import ComponentRenderer from './componentRenderer.vue'
 import SeatsioSeatingChart from '@/lib-components/seatsioSeatingChart.vue'
 import SeatsioChartManager from '@/lib-components/seatsioChartManager.vue'
 import SeatsioDesigner from '@/lib-components/seatsioDesigner.vue'
 import SeatsioEventManager from '@/lib-components/seatsioEventManager.vue'
 
-export default Vue.extend({
-  name: 'ServeDev',
-  components: {
-    ComponentRenderer,
-    SeatsioChartManager,
-    SeatsioDesigner,
-    SeatsioEventManager,
-    SeatsioSeatingChart,
-  },
-  data: () => ({
-    messages: { clickToSelect: 'Click to pick'},
-    objectColor: () => 'grey',
-    tooltipInfo: () => 'My custom info',
-    selectedComponent: 'seatingChart'
-  }),
-  methods: {
-    onRenderStarted: chart => console.log('Render started', chart),
-    onObjectClicked: clickedObject => console.log('Object clicked', clickedObject),
-    // Dev purposes only
-    selectChartType: function (selection) {
-      this.selectedComponent = selection
-    }
-  },
-});
+export default {
+    name: 'ServeDev',
+    components: {
+      ComponentRenderer,
+      SeatsioSeatingChart,
+      SeatsioChartManager,
+      SeatsioDesigner,
+      SeatsioEventManager,
+      SeatsioSeatingChart,
+    },
+    data: () => ({
+      messages: { clickToSelect: 'Click to pick'},
+      objectColor: () => 'grey',
+      tooltipInfo: () => 'My custom info',
+      selectedComponent: 'seatingChart',
+    }),
+    methods: {
+      onRenderStarted: chart => console.log('Render started', chart),
+      onObjectClicked: clickedObject => console.log('Object clicked', clickedObject),
+      // Dev purposes only
+      selectChartType: function (selection) {
+        this.selectedComponent = selection
+      }
+    },
+}
 </script>
 
 <template>
-  <div id="app">
-    <ComponentRenderer @selectChartType="selectChartType" />
-    <SeatsioSeatingChart
+  <ComponentRenderer @selectChartType="selectChartType" />
+  <SeatsioSeatingChart
         v-if="selectedComponent === 'seatingChart'"
         id="myChart"
         workspaceKey="publicDemoKey"
@@ -83,7 +82,6 @@ export default Vue.extend({
         chartKey="[Your chart key]"
         secretKey="[Your secret key]"
     />
-  </div>
 </template>
 
 <style scoped>
