@@ -40,8 +40,7 @@
           onSubmitFailed: () => this.$emit('onSubmitFailed'),
         }
   
-        const config = {divId: this.$props.id, ...this.finaliseProps(this.$props), ...callbacks}
-        console.log("Config", config)                   
+        const config = {divId: this.$props.id, ...this.finaliseProps(this.$props), ...callbacks}                 
         this.chart = this.createChart(seatsio, config).render()
         this.chart && this.$emit('onRenderStarted', this.chart)
       },
