@@ -73,14 +73,14 @@ export default {
     <SeatsioEventManager
         v-if="selectedComponent === 'eventManager'"
         id="myEventManager"
-        mode="manageRulesets"
+        mode="manageCategories"
         :messages="messages"
         :tooltipInfo="tooltipInfo"
         @onRenderStarted="onRenderStarted"
         @onObjectClicked="onObjectClicked"
-        workspaceKey="<yourWorkspaceKey>"
-        chartKey="<yourChartKey>"
+        event="<yourEventKey"
         secretKey="<yourWorkspaceSecretKey>"
+        workspaceKey="<yourWorkspaceKey>"
     />
 </template>
 

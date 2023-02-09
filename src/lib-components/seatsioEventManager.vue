@@ -10,7 +10,7 @@ export default {
             return { chart: chartKey, ...finalProps }
         },
         createChart: (seatsio, config) => {
-          return new seatsio.ChartManager(config)
+          return new seatsio.EventManager(config)
         }
     }
 }
