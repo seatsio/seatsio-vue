@@ -45,7 +45,7 @@
         this.chart && this.$emit('onRenderStarted', this.chart)
       },
       finaliseProps: function (props) {
-        return props;
+        return props
       },
       getSeatsio: async function () {
         if (typeof window.seatsio === 'undefined') {
