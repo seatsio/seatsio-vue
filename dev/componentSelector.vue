@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'ComponentRenderer',
+  name: 'ComponentSelector',
   methods: {
     onClick: function(selection) {
         this.$emit('selectChartType', selection)

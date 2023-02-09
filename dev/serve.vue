@@ -1,5 +1,5 @@
 <script>
-import ComponentRenderer from './componentRenderer.vue'
+import ComponentSelector from './componentSelector.vue'
 import SeatsioSeatingChart from '@/lib-components/seatsioSeatingChart.vue'
 import SeatsioChartManager from '@/lib-components/seatsioChartManager.vue'
 import SeatsioDesigner from '@/lib-components/seatsioDesigner.vue'
@@ -8,7 +8,7 @@ import SeatsioEventManager from '@/lib-components/seatsioEventManager.vue'
 export default {
     name: 'ServeDev',
     components: {
-      ComponentRenderer,
+      ComponentSelector,
       SeatsioSeatingChart,
       SeatsioChartManager,
       SeatsioDesigner,
@@ -33,7 +33,7 @@ export default {
 </script>
 
 <template>
-  <ComponentRenderer @selectChartType="selectChartType" />
+  <ComponentSelector @selectChartType="selectChartType" />
   <SeatsioSeatingChart
         v-if="selectedComponent === 'seatingChart'"
         id="myChart"
