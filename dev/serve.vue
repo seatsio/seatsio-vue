@@ -66,9 +66,9 @@ export default {
         :tooltipInfo="tooltipInfo"
         @onRenderStarted="onRenderStarted"
         @onObjectClicked="onObjectClicked"
-        workspaceKey="[Your workspace key]"
-        chartKey="[Your chart key]"
-        secretKey="[Your secret key]"
+        workspaceKey="<yourWorkspaceKey>"
+        chartKey="<yourChartKey>"
+        secretKey="<yourWorkspaceSecretKey>"
     />
     <SeatsioEventManager
         v-if="selectedComponent === 'eventManager'"
@@ -78,9 +78,9 @@ export default {
         :tooltipInfo="tooltipInfo"
         @onRenderStarted="onRenderStarted"
         @onObjectClicked="onObjectClicked"
-        workspaceKey="[Your workspace key]"
-        chartKey="[Your chart key]"
-        secretKey="[Your secret key]"
+        workspaceKey="<yourWorkspaceKey>"
+        chartKey="<yourChartKey>"
+        secretKey="<yourWorkspaceSecretKey>"
     />
 </template>
 
