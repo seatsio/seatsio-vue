@@ -52,7 +52,7 @@ data() {
 },
 methods: {
     storeChart: function (chart) {
-        this.chart = chartl
+        this.chart = chart
         console.log(chart.selectedObjects)
     } 
 }
