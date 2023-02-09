@@ -24,16 +24,12 @@ export default {
     methods: {
       onRenderStarted: chart => console.log('Render started', chart),
       onObjectClicked: clickedObject => console.log('Object clicked', clickedObject),
-      // Dev purposes only
-      selectChartType: function (selection) {
-        this.selectedComponent = selection
-      }
     },
 }
 </script>
 
 <template>
-  <ComponentSelector @selectChartType="selectChartType" />
+  <ComponentSelector @selectChartType="component => selectedComponent = component" />
   <SeatsioSeatingChart
         v-if="selectedComponent === 'seatingChart'"
         id="myChart"
