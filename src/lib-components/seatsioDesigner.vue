@@ -6,7 +6,6 @@ export default {
   name: 'seatsioDesigner',
   methods: {
      createChart: function (seatsio, config) {
-      // noinspection JSUnresolvedFunction
       return new seatsio.SeatingChartDesigner(config)
     }
   }

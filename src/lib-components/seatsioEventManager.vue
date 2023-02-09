@@ -10,7 +10,6 @@ export default {
             return { chart: chartKey, ...finalProps }
         },
         createChart: (seatsio, config) => {
-          // noinspection JSUnresolvedFunction
           return new seatsio.ChartManager(config)
         }
     }
