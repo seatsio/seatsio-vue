@@ -8,21 +8,21 @@
     },
     props: {
       chartJsUrl: {type: String, default: 'https://cdn-{region}.seatsio.net/chart.js'},
-      event: {type: String},
+      event: String,
       id: {type: String, default: 'chart'},
-      extraConfig: {type: Object},
-      fitTo: {type: String},
-      language: {type: String},
-      messages: {type: Object},
-      mode: {type: String},
-      objectColor: {type: Function},
-      objectTooltip: {type: Object},
+      extraConfig: Object,
+      fitTo: String,
+      language: String,
+      messages: Object,
+      mode: String,
+      objectColor: Function,
+      objectTooltip: Object,
       workspaceKey: {type: String, required: true},
       region: {type: String, default: 'eu'},
-      showFullscreenButton: {type: Boolean},
-      tooltipInfo: {type: Function},
-      chartKey: {type: String},
-      secretKey: {type: String}
+      showFullscreenButton: Boolean,
+      tooltipInfo: Function,
+      chartKey: String,
+      secretKey: String
     },
     methods: {
       createAndRenderChart: async function () {
