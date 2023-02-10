@@ -1,17 +1,26 @@
+import { 
+  SeatsioChartManager,
+  SeatsioDesigner,
+  SeatsioEventManager,
+  SeatsioSeatingChart
+} from './lib-components';
 
-// Import vue components
-import * as components from '@/lib-components/index';
+const components = {
+  SeatsioChartManager,
+  SeatsioDesigner,
+  SeatsioEventManager,
+  SeatsioSeatingChart
+}
 
-// install function executed by Vue.use()
-const install = function installSeatsioVue(Vue) {
-  Object.entries(components).forEach(([componentName, component]) => {
-    Vue.component(componentName, component);
-  });
-};
+export default {
+  install (app, _options) {
+    for (const prop in components) {
+      if (components.hasOwnProperty(prop)) {
+        const component = components[prop]
+        app.component(component.name, component)
+      }
+    }
+  }
+}
 
-// Create module definition for Vue.use()
-export default install;
-
-// To allow individual component use, export components
-// each can be registered via Vue.component()
-export * from '@/lib-components/index';
+export { SeatsioChartManager, SeatsioDesigner, SeatsioEventManager, SeatsioSeatingChart }
