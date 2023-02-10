@@ -3,7 +3,7 @@ import SeatsioEmbeddable from './seatsioEmbeddable.vue'
 
 export default {
     mixins: [SeatsioEmbeddable],
-    name: 'seatsioEventManager',
+    name: 'SeatsioEventManager',
     methods: {
         finaliseProps: function (props) {
             const { chartJsUrl, id, region, showFullscreenButton, chartKey, ...finalProps } = props

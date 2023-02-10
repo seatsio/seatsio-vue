@@ -3,7 +3,7 @@ import SeatsioEmbeddable from './seatsioEmbeddable.vue'
 
 export default {
   mixins: [SeatsioEmbeddable],
-  name: 'seatsioSeatingChart',
+  name: 'SeatsioSeatingChart',
   methods: {
     createChart: function (seatsio, config) {
       return new seatsio.SeatingChart(config)
