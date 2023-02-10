@@ -85,7 +85,7 @@ if (!argv.format || argv.format === 'es') {
     input: 'src/entry.js',
     external,
     output: {
-      file: 'dist/seatsio-vue.esm.js',
+      file: 'dist/seatsio-vue.js',
       format: 'esm',
       exports: 'named',
     },

@@ -2,10 +2,7 @@
   "name": "seatsio-vue",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/seatsio-vue.ssr.js",
-  "browser": "dist/seatsio-vue.esm.js",
-  "module": "dist/seatsio-vue.esm.js",
-  "unpkg": "dist/seatsio-vue.min.js",
+  "main": "dist/seatsio-vue.js",
   "files": [
     "dist/*",
     "src/**/*.vue"
