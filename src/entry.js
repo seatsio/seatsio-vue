@@ -1,13 +1,26 @@
-// iife/cjs usage extends esm default export - so import it all
-import plugin, * as components from '@/entry.esm';
+import { 
+  SeatsioChartManager,
+  SeatsioDesigner,
+  SeatsioEventManager,
+  SeatsioSeatingChart
+} from './lib-components';
 
-// Attach named exports directly to plugin. IIFE/CJS will
-// only expose one global var, with component exports exposed as properties of
-// that global var (eg. plugin.component)
-Object.entries(components).forEach(([componentName, component]) => {
-  if (componentName !== 'default') {
-    plugin[componentName] = component;
+const components = {
+  SeatsioChartManager,
+  SeatsioDesigner,
+  SeatsioEventManager,
+  SeatsioSeatingChart
+}
+
+export default {
+  install (app, _options) {
+    for (const prop in components) {
+      if (components.hasOwnProperty(prop)) {
+        const component = components[prop]
+        app.component(component.name, component)
+      }
+    }
   }
-});
+}
 
-export default plugin;
+export { SeatsioChartManager, SeatsioDesigner, SeatsioEventManager, SeatsioSeatingChart }

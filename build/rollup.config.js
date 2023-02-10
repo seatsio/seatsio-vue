@@ -82,7 +82,7 @@ const buildFormats = [];
 if (!argv.format || argv.format === 'es') {
   const esConfig = {
     ...baseConfig,
-    input: 'src/entry.esm.js',
+    input: 'src/entry.js',
     external,
     output: {
       file: 'dist/seatsio-vue.esm.js',
@@ -120,7 +120,7 @@ if (!argv.format || argv.format === 'cjs') {
       file: 'dist/seatsio-vue.ssr.js',
       format: 'cjs',
       name: 'SeatsioVue',
-      exports: 'auto',
+      exports: 'named',
       globals,
     },
     plugins: [
@@ -149,7 +149,7 @@ if (!argv.format || argv.format === 'iife') {
       file: 'dist/seatsio-vue.min.js',
       format: 'iife',
       name: 'SeatsioVue',
-      exports: 'auto',
+      exports: 'named',
       globals,
     },
     plugins: [
