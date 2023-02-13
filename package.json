@@ -28,8 +28,5 @@
   },
   "peerDependencies": {
     "vue": "^3.2.47"
-  },
-  "engines": {
-    "node": ">=12"
   }
 }
