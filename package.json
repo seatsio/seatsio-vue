@@ -1,6 +1,7 @@
 {
   "name": "@seatsio/seatsio-vue",
   "version": "1.0.0",
+  "license": "MIT",
   "main": "dist/seatsio-vue.js",
   "sideEffects": false,
   "scripts": {
