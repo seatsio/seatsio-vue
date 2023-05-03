@@ -15,14 +15,18 @@ export default {
       SeatsioEventManager
     },
     data: () => ({
-      messages: { clickToSelect: 'Click to pick'},
-      objectColor: () => 'grey',
+      messages: {
+        clickToSelect: 'Click to pick',
+        STAGE: 'stage-translated'
+      },
+      objectColor: () => 'purple',
       tooltipInfo: () => 'My custom info',
       selectedComponent: 'seatingChart',
     }),
     methods: {
       onRenderStarted: chart => console.log('Render started', chart),
       onObjectClicked: clickedObject => console.log('Object clicked', clickedObject),
+      priceFormatter: price => '$' + price
     },
 }
 </script>
@@ -35,11 +39,18 @@ export default {
         workspaceKey="publicDemoKey"
         event="smallTheatreEvent"
         region="eu"
+        language="en"
         :messages="messages"
         :objectColor="objectColor"
         :tooltipInfo="tooltipInfo"
         @onRenderStarted="onRenderStarted"
         @onObjectClicked="onObjectClicked"
+        :pricing="[
+          { category: 1, price: 30 },
+          { category: 2, price: 40 },
+          { category: 3, price: 50 }
+        ]"
+        @priceFormatter="priceFormatter"
     />
     <SeatsioDesigner
       v-if="selectedComponent === 'chartDesigner'"
@@ -47,6 +58,7 @@ export default {
       id="myChartDesigner"
       workspaceKey="publicDemoKey"
       mode="readOnly"
+      :show-fullscreen-button="true"
       :messages="messages"
       :tooltipInfo="tooltipInfo"
       @onRenderStarted="onRenderStarted"
