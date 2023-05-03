@@ -12,8 +12,7 @@ export default {
       SeatsioSeatingChart,
       SeatsioChartManager,
       SeatsioDesigner,
-      SeatsioEventManager,
-      SeatsioSeatingChart,
+      SeatsioEventManager
     },
     data: () => ({
       messages: { clickToSelect: 'Click to pick'},
