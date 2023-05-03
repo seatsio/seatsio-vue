@@ -8,21 +8,8 @@
     },
     props: {
       chartJsUrl: {type: String, default: 'https://cdn-{region}.seatsio.net/chart.js'},
-      event: String,
       id: {type: String, default: 'chart'},
-      extraConfig: Object,
-      fitTo: String,
-      language: String,
-      messages: Object,
-      mode: String,
-      objectColor: Function,
-      objectTooltip: Object,
-      workspaceKey: {type: String, required: true},
       region: {type: String, default: 'eu'},
-      showFullscreenButton: Boolean,
-      tooltipInfo: Function,
-      chartKey: String,
-      secretKey: String
     },
     methods: {
       createAndRenderChart: async function () {
@@ -39,13 +26,29 @@
           onSubmitSucceeded: () => this.$emit('onSubmitSucceeded'),
           onSubmitFailed: () => this.$emit('onSubmitFailed'),
         }
-  
-        const config = {divId: this.$props.id, ...this.finaliseProps(this.$props), ...callbacks}                 
+
+        const config = {
+          divId: this.$props.id,
+          ...this.propsAndAttrs(),
+          ...callbacks
+        }
         this.chart = this.createChart(seatsio, config).render()
         this.chart && this.$emit('onRenderStarted', this.chart)
       },
-      finaliseProps: function (props) {
-        return props
+      attrsWithOriginalKeys: function () {
+        let attrs = {...this.$attrs};
+        for (const [key, value] of Object.entries(attrs)) {
+          if (key.startsWith('on')) {
+            let newKey = key.substring(2)
+            const lowerCaseNewKey = newKey.charAt(0).toLowerCase() + newKey.substring(1)
+            attrs[lowerCaseNewKey] = value
+            delete attrs[key]
+          }
+        }
+        return attrs
+      },
+      propsAndAttrs: function () {
+        return {...this.$props, ...this.attrsWithOriginalKeys()}
       },
       getSeatsio: async function () {
         if (typeof window.seatsio === 'undefined') {
