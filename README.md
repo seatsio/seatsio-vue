@@ -74,11 +74,11 @@ export default {
     }
 }
 
+// Notice how the event handler is defined with @&lt;eventListener&gt;
+// For more information, see https://vuejs.org/guide/essentials/event-handling.html
 <SeatsioSeatingChart
     workspaceKey="<yourPublicWorkspaceKey>"
     event="<yourEventKey>"
-    // Notice how the event handler is defined with @<eventListener>
-    // For more information, see https://vuejs.org/guide/essentials/event-handling.html
     @renderStarted="onRenderStarted"
     region="eu"
 />
