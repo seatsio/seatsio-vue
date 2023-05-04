@@ -19,15 +19,16 @@ export default {
         clickToSelect: 'Click to pick',
         STAGE: 'stage-translated'
       },
+      selectedComponent: 'seatingChart',
       objectColor: () => 'purple',
       tooltipInfo: () => 'My custom info',
-      selectedComponent: 'seatingChart',
+      chartJsUrl: 'https://cdn-staging-eu.seatsio.net/chart.js'
     }),
     methods: {
       onRenderStarted: chart => console.log('Render started', chart),
       onObjectClicked: clickedObject => console.log('Object clicked', clickedObject),
       priceFormatter: price => '$' + price
-    },
+    }
 }
 </script>
 
@@ -40,54 +41,58 @@ export default {
         event="smallTheatreEvent"
         region="eu"
         language="en"
+        :chartJsUrl="chartJsUrl"
         :messages="messages"
         :objectColor="objectColor"
         :tooltipInfo="tooltipInfo"
-        @onRenderStarted="onRenderStarted"
-        @onObjectClicked="onObjectClicked"
+        :priceFormatter="priceFormatter"
+        @renderStarted="onRenderStarted"
+        @objectClicked="onObjectClicked"
         :pricing="[
           { category: 1, price: 30 },
           { category: 2, price: 40 },
           { category: 3, price: 50 }
         ]"
-        @priceFormatter="priceFormatter"
     />
     <SeatsioDesigner
       v-if="selectedComponent === 'chartDesigner'"
-      event="437fd038-ba0c-42aa-9ba9-e06bd5b790a3"
+      region="eu"
       id="myChartDesigner"
       workspaceKey="publicDemoKey"
       mode="readOnly"
+      :chartJsUrl="chartJsUrl"
       :show-fullscreen-button="true"
       :messages="messages"
       :tooltipInfo="tooltipInfo"
-      @onRenderStarted="onRenderStarted"
-      @onObjectClicked="onObjectClicked"
+      @renderStarted="onRenderStarted"
+      @objectClicked="onObjectClicked"
       chartKey="0bcf8295-0063-486b-85fe-77b8d85008b5"
     />
     <SeatsioChartManager
         v-if="selectedComponent === 'chartManager'"
+        region="eu"
         id="myChartManager"
         mode="manageRulesets"
+        :chartJsUrl="chartJsUrl"
         :messages="messages"
         :tooltipInfo="tooltipInfo"
-        @onRenderStarted="onRenderStarted"
-        @onObjectClicked="onObjectClicked"
-        workspaceKey="<yourWorkspaceKey>"
-        chartKey="<yourChartKey>"
-        secretKey="<yourWorkspaceSecretKey>"
+        @renderStarted="onRenderStarted"
+        @objectClicked="onObjectClicked"
+        chart="0bcf8295-0063-486b-85fe-77b8d85008b5"
+        secretKey="demoKey"
     />
     <SeatsioEventManager
         v-if="selectedComponent === 'eventManager'"
+        region="eu"
         id="myEventManager"
         mode="manageCategories"
+        :chartJsUrl="chartJsUrl"
         :messages="messages"
         :tooltipInfo="tooltipInfo"
-        @onRenderStarted="onRenderStarted"
-        @onObjectClicked="onObjectClicked"
-        event="<yourEventKey"
-        secretKey="<yourWorkspaceSecretKey>"
-        workspaceKey="<yourWorkspaceKey>"
+        @renderStarted="onRenderStarted"
+        @objectClicked="onObjectClicked"
+        event="smallTheatreEvent"
+        secretKey="demoKey"
     />
 </template>
 
