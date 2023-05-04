@@ -8,49 +8,35 @@
     },
     props: {
       chartJsUrl: {type: String, default: 'https://cdn-{region}.seatsio.net/chart.js'},
-      event: String,
       id: {type: String, default: 'chart'},
-      extraConfig: Object,
-      fitTo: String,
-      language: String,
-      messages: Object,
-      mode: String,
-      objectColor: Function,
-      objectTooltip: Object,
-      workspaceKey: {type: String, required: true},
-      region: {type: String, default: 'eu'},
-      showFullscreenButton: Boolean,
-      tooltipInfo: Function,
-      chartKey: String,
-      secretKey: String
+      region: {type: String, required: true}
     },
     methods: {
       createAndRenderChart: async function () {
-        const seatsio = await this.getSeatsio()
-        const callbacks = {
-          onChartRendered: chart => this.$emit('onChartRendered', chart),
-          onChartRenderingFailed: chart => this.$emit('onChartRenderingFailed', chart),
-          onChartRerenderingStarted: chart => this.$emit('onChartRerenderingStarted', chart),
-          onObjectSelected: selectedObject => this.$emit('onObjectSelected', selectedObject),
-          onObjectDeselected: deselectedObject => this.$emit('onObjectDeselected', deselectedObject),
-          onObjectClicked: clickedObject => this.$emit('onObjectClicked', clickedObject),
-          onFullScreenOpened: () => this.$emit('onFullScreenOpened'),
-          onFullScreenClosed: () => this.$emit('onFullScreenClosed'),
-          onSubmitSucceeded: () => this.$emit('onSubmitSucceeded'),
-          onSubmitFailed: () => this.$emit('onSubmitFailed'),
+        if(!this.$props.region) {
+          return
         }
-  
-        const config = {divId: this.$props.id, ...this.finaliseProps(this.$props), ...callbacks}                 
+
+        const seatsio = await this.getSeatsio()
+
+        const config = {
+          divId: this.$props.id,
+          ...this.propsAndAttrs()
+        }
         this.chart = this.createChart(seatsio, config).render()
-        this.chart && this.$emit('onRenderStarted', this.chart)
+        if(this.$attrs.onRenderStarted) {
+          this.$attrs.onRenderStarted(this.chart)
+        }
       },
-      finaliseProps: function (props) {
-        return props
+      propsAndAttrs: function () {
+        let allPropsAndAttrs = {...this.$props, ...this.$attrs};
+        let { id, onRenderStarted, chartJsUrl, region, ...filteredPropsAndAttrs } = allPropsAndAttrs
+        return filteredPropsAndAttrs
       },
       getSeatsio: async function () {
         if (typeof window.seatsio === 'undefined') {
           return this.loadSeatsio()
-        } else if (window.seatsio.region !== this.region) {
+        } else if (window.seatsio.region !== this.getRegion()) {
           window.seatsio = undefined
           return this.loadSeatsio()
         } else {
@@ -61,16 +47,19 @@
         return new Promise((resolve, reject) => {
           let script = document.createElement('script')
           script.onload = () => {
-            window.seatsio.region = this.region
+            window.seatsio.region = this.getRegion()
             resolve(window.seatsio)
           }
           script.onerror = () => reject(`Could not load ${script.src}`)
-          script.src = this.chartJsUrl.replace('{region}', this.region)
+          script.src = this.chartJsUrl.replace('{region}', this.getRegion())
           document.head.appendChild(script)
         })
       },
       destroyChart: function () {
         this.chart.destroy()
+      },
+      getRegion: function () {
+        return this.$props.region
       }
     }
   }
