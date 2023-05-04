@@ -9,7 +9,7 @@ Npm
 npm install --save @seatsio/seatsio-vue
 
 Yarn
-yarn add -dev @seatsio/seatsio-vue
+yarn add @seatsio/seatsio-vue
 ```
 
 # Usage
@@ -18,7 +18,7 @@ yarn add -dev @seatsio/seatsio-vue
 
 ### Minimal example to render a seating chart:
 
-```jsx
+```vue
 import { SeatsioSeatingChart } from '@seatsio/seatsio-vue';
 
 <div style="height: 500px">
@@ -32,13 +32,32 @@ import { SeatsioSeatingChart } from '@seatsio/seatsio-vue';
 
 The chart uses 100 % of the width and height of the DOM element (e.g. a div) in which you render it. Play with the size of that element to change the chart size.
 
+### Pricing
+
+```vue
+import { SeatsioSeatingChart } from '@seatsio/seatsio-vue';
+
+<div style="height: 500px">
+    <SeatsioSeatingChart
+        workspaceKey="<yourPublicWorkspaceKey>"
+        event="<yourEventKey>"
+        region="eu"
+        :pricing="[
+            {'category': 1, 'price': 30},
+            {'category': 2, 'price': 40},
+            {'category': 3, 'price': 50}
+        ]"
+    />
+</div>
+```
+
 ## Reacting to events
 
 ### onRenderStarted()
 
 `onRenderStarted` is fired when the chart has started loading, but hasn't rendered yet. If you store the chart object that's passed to the `onRenderStarted` callback, you can access the properties defined on the  wrapped `seatsio.SeatingChart`:
 
-```jsx
+```vue
 // Single File Component (SFC) using SeatsioSeatingChart
 export default {
     ...
@@ -48,7 +67,7 @@ export default {
         }
     },
     methods: {
-        onRenderStarted: function (chart) {
+        onRenderStarted: (chart) => {
             this.chart = chart
             console.log(chart.selectedObjects)
         } 
@@ -60,7 +79,7 @@ export default {
     event="<yourEventKey>"
     // Notice how the event handler is defined with @<eventListener>
     // For more information, see https://vuejs.org/guide/essentials/event-handling.html
-    @onRenderStarted="onRenderStarted"
+    @renderStarted="onRenderStarted"
     region="eu"
 />
 ```
@@ -69,7 +88,7 @@ export default {
 
 `onChartRendered` is fired when the chart is rendered successfully:
 
-```jsx
+```vue
 export default {
     ...
     data() {
@@ -88,7 +107,7 @@ export default {
 <SeatsioSeatingChart
     workspaceKey="<yourPublicWorkspaceKey>"
     event="<yourEventKey>"
-    @onChartRendered="onChartRendered"
+    @chartRendered="onChartRendered"
     region="eu"
 />
 ```
@@ -96,14 +115,13 @@ export default {
 
 Other parameters are supported as well. For a full list, check https://docs.seats.io/docs/renderer/embed-a-floor-plan
 
-
 Example: Passing in a custom object color:
-```jsx
+```vue
 export default {
     ...
     data() {
         // Supports CSS color values
-        objectColor: () => 'grey',
+        objectColor: () => 'grey'
     },
 }
 
@@ -119,7 +137,7 @@ Whenever one of the properties passed on to `<SeatsioSeatingChart />` changes, t
 
 ## Event manager
 
-```jsx
+```vue
 import { SeatsioEventManager } from '@seatsio/seatsio-vue';
 
 <div style="height: 500px">
@@ -136,7 +154,7 @@ Other parameters are supported as well. For a full list, check https://docs.seat
 
 ## Chart manager
 
-```jsx
+```vue
 import { SeatsioChartManager } from '@seatsio/seatsio-vue';
 
 <div style="height: 500px">
@@ -154,7 +172,7 @@ Other parameters are supported as well. For a full list, check https://docs.seat
 
 To embed the seating chart designer for the purpose of creating a new chart, do this:
 
-```jsx
+```vue
 import { SeatsioDesigner } from '@seatsio/seatsio-vue';
 
 <div style="height: 500px">
@@ -167,7 +185,7 @@ import { SeatsioDesigner } from '@seatsio/seatsio-vue';
 
 To be able to edit a chart from an embedded designer, you need to specify the chart to load:
  
-```jsx
+```vue
 <SeatsioDesigner
     secretKey="<yourWorkspaceSecretKey>"    
     chartKey="<yourChartKey>"
