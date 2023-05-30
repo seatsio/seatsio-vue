@@ -179,6 +179,7 @@ import { SeatsioDesigner } from '@seatsio/seatsio-vue';
     <SeatsioDesigner
         secretKey="<yourWorkspaceSecretKey>"
         region="eu"
+        @chartCreated="onChartCreated"
     />
 </div>
 ```
