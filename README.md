@@ -152,22 +152,6 @@ import { SeatsioEventManager } from '@seatsio/seatsio-vue';
 
 Other parameters are supported as well. For a full list, check https://docs.seats.io/docs/event-manager/configuring
 
-## Chart manager
-
-```vue
-import { SeatsioChartManager } from '@seatsio/seatsio-vue';
-
-<div style="height: 500px">
-    <SeatsioChartManager
-        secretKey="<yourWorkspaceSecretKey>"
-        chart="<yourChartKey>"
-        mode="<manageRulesets or another mode>"
-        region="eu"
-    />
-</div>
-```
-Other parameters are supported as well. For a full list, check https://docs.seats.io/docs/chart-manager/configuring/
-
 ## Seating Chart Designer
 
 To embed the seating chart designer for the purpose of creating a new chart, do this:
