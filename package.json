@@ -16,7 +16,7 @@
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-replace": "^5.0.2",
+    "@rollup/plugin-replace": "^5.0.5",
     "@vue/cli-plugin-babel": "^5.0.8",
     "@vue/cli-service": "^5.0.8",
     "cross-env": "^7.0.3",
