@@ -1,11 +1,12 @@
-<script>
+<script lang="ts">
+import { ChartDesignerConfigOptions, Seatsio } from "@seatsio/seatsio-types";
 import SeatsioEmbeddable from './seatsioEmbeddable.vue'
 
 export default {
   mixins: [SeatsioEmbeddable],
   name: 'SeatsioDesigner',
   methods: {
-     createChart: function (seatsio, config) {
+     createChart: function (seatsio: Seatsio, config: ChartDesignerConfigOptions) {
       return new seatsio.SeatingChartDesigner(config)
     }
   }

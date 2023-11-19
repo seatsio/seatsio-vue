@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
 import ComponentSelector from './componentSelector.vue'
-import SeatsioSeatingChart from '@/lib-components/seatsioSeatingChart.vue'
-import SeatsioChartManager from '@/lib-components/seatsioChartManager.vue'
-import SeatsioDesigner from '@/lib-components/seatsioDesigner.vue'
-import SeatsioEventManager from '@/lib-components/seatsioEventManager.vue'
+import SeatsioSeatingChart from '../src/lib-components/seatsioSeatingChart.vue'
+import SeatsioChartManager from '../src/lib-components/seatsioChartManager.vue'
+import SeatsioDesigner from '../src/lib-components/seatsioDesigner.vue'
+import SeatsioEventManager from '../src/lib-components/seatsioEventManager.vue'
 
 export default {
     name: 'ServeDev',
