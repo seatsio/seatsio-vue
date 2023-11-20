@@ -13,7 +13,6 @@ export default {
   <ul id="menu">
       <li><button @click="this.onClick('seatingChart')">Seating Chart</button></li>
       <li><button @click="this.onClick('chartDesigner')">Designer</button></li>
-      <li><button @click="this.onClick('chartManager')">ChartManager</button></li>
       <li><button @click="this.onClick('eventManager')">EventManager</button></li>
     </ul>
 </template>

@@ -10,16 +10,13 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": true,
+    "noImplicitAny": true,
+    "allowJs": true,
     "sourceMap": true,
     "baseUrl": ".",
     "typeRoots": [
       "node_modules/@seatsio/seatsio-types"
     ],
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    },
     "lib": [
       "esnext",
       "dom",

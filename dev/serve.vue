@@ -1,7 +1,6 @@
 <script lang="ts">
 import ComponentSelector from './componentSelector.vue'
 import SeatsioSeatingChart from '../src/lib-components/seatsioSeatingChart.vue'
-import SeatsioChartManager from '../src/lib-components/seatsioChartManager.vue'
 import SeatsioDesigner from '../src/lib-components/seatsioDesigner.vue'
 import SeatsioEventManager from '../src/lib-components/seatsioEventManager.vue'
 
@@ -10,7 +9,6 @@ export default {
     components: {
       ComponentSelector,
       SeatsioSeatingChart,
-      SeatsioChartManager,
       SeatsioDesigner,
       SeatsioEventManager
     },
@@ -39,8 +37,8 @@ export default {
         id="myChart"
         workspaceKey="publicDemoKey"
         event="smallTheatreEvent"
-        region="eu"
         language="en"
+        region="eu"
         :chartJsUrl="chartJsUrl"
         :messages="messages"
         :objectColor="objectColor"

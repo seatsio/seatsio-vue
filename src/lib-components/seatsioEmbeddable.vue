@@ -1,5 +1,8 @@
-<script>
-  export default {
+<script lang="ts">
+  import type { Language, Region, SeatsioEmbeddableProps } from "./types"
+  import { PropType, defineComponent } from "vue"
+
+  export default defineComponent({
     mounted() {
       this.createAndRenderChart()
     },
@@ -9,7 +12,11 @@
     props: {
       chartJsUrl: {type: String, default: 'https://cdn-{region}.seatsio.net/chart.js'},
       id: {type: String, default: 'chart'},
-      region: {type: String, required: true}
+      region: {type: String as PropType<Region>, required: true},
+      language: {
+        type: String as PropType<Language>,
+        required: true
+      }
     },
     methods: {
       createAndRenderChart: async function () {
@@ -23,20 +30,24 @@
           divId: this.$props.id,
           ...this.propsAndAttrs()
         }
+        // @ts-ignore
         this.chart = this.createChart(seatsio, config).render()
         if(this.$attrs.onRenderStarted) {
+          // @ts-ignore
           this.$attrs.onRenderStarted(this.chart)
         }
       },
       propsAndAttrs: function () {
         let allPropsAndAttrs = {...this.$props, ...this.$attrs};
+        // @ts-ignore
         let { id, onRenderStarted, chartJsUrl, region, ...filteredPropsAndAttrs } = allPropsAndAttrs
         return filteredPropsAndAttrs
       },
       getSeatsio: async function () {
         if (typeof window.seatsio === 'undefined') {
           return this.loadSeatsio()
-        } else if (window.seatsio.region !== this.getRegion()) {
+        } else if ((seatsio as any).region !== this.getRegion()) {
+          // @ts-ignore
           window.seatsio = undefined
           return this.loadSeatsio()
         } else {
@@ -47,7 +58,7 @@
         return new Promise((resolve, reject) => {
           let script = document.createElement('script')
           script.onload = () => {
-            window.seatsio.region = this.getRegion()
+            (seatsio as any).region = this.getRegion()
             resolve(window.seatsio)
           }
           script.onerror = () => reject(`Could not load ${script.src}`)
@@ -56,11 +67,12 @@
         })
       },
       destroyChart: function () {
+        // @ts-ignore
         this.chart.destroy()
       },
       getRegion: function () {
         return this.$props.region
       }
     }
-  }
+  })
 </script>

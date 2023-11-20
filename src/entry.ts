@@ -1,5 +1,4 @@
 import { 
-  SeatsioChartManager,
   SeatsioDesigner,
   SeatsioEventManager,
   SeatsioSeatingChart
@@ -7,7 +6,6 @@ import {
 import { createApp } from "vue";
 
 const components = {
-  SeatsioChartManager,
   SeatsioDesigner,
   SeatsioEventManager,
   SeatsioSeatingChart
@@ -30,4 +28,4 @@ export default {
   },
 }
 
-export { SeatsioChartManager, SeatsioDesigner, SeatsioEventManager, SeatsioSeatingChart }
+export { SeatsioDesigner, SeatsioEventManager, SeatsioSeatingChart }
