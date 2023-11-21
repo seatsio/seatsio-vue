@@ -66,19 +66,6 @@ export default {
       @objectClicked="onObjectClicked"
       chartKey="0bcf8295-0063-486b-85fe-77b8d85008b5"
     />
-    <SeatsioChartManager
-        v-if="selectedComponent === 'chartManager'"
-        region="eu"
-        id="myChartManager"
-        mode="manageRulesets"
-        :chartJsUrl="chartJsUrl"
-        :messages="messages"
-        :tooltipInfo="tooltipInfo"
-        @renderStarted="onRenderStarted"
-        @objectClicked="onObjectClicked"
-        chart="0bcf8295-0063-486b-85fe-77b8d85008b5"
-        secretKey="demoKey"
-    />
     <SeatsioEventManager
         v-if="selectedComponent === 'eventManager'"
         region="eu"
