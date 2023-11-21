@@ -65,6 +65,7 @@ export default {
       @renderStarted="onRenderStarted"
       @objectClicked="onObjectClicked"
       chartKey="0bcf8295-0063-486b-85fe-77b8d85008b5"
+      secretKey="demoKey"
     />
     <SeatsioEventManager
         v-if="selectedComponent === 'eventManager'"
