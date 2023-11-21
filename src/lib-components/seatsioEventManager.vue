@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { EventManagerConfigOptions, Seatsio, SeatsioEventManagerProps } from "./types"
+import type { EventManagerConfigOptions, Seatsio, SeatsioEventManagerProps } from "../types"
 import SeatsioEmbeddable from './seatsioEmbeddable.vue'
 import { defineComponent } from "vue"
 

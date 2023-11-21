@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Language, Region, SeatsioEmbeddableProps } from "./types"
+  import type { Language, Region, SeatsioEmbeddableProps } from "../types"
   import { PropType, defineComponent } from "vue"
 
   export default defineComponent({

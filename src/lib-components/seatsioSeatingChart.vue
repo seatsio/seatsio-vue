@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { ChartRendererConfigOptions, Seatsio, SeatsioSeatingChartProps } from "./types";
+import type { ChartRendererConfigOptions, Seatsio, SeatsioSeatingChartProps } from "../types";
 import SeatsioEmbeddable from './seatsioEmbeddable.vue'
 import { defineComponent } from "vue";
 

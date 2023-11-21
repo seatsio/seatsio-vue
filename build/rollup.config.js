@@ -26,7 +26,7 @@ const argv = minimist(process.argv.slice(2));
 const projectRoot = path.resolve(__dirname, '..');
 
 const baseConfig = {
-  input: 'src/entry.ts',
+  input: 'src/index.ts',
   plugins: {
     preVue: [
       alias({
@@ -84,7 +84,7 @@ const buildFormats = [];
 if (!argv.format || argv.format === 'es') {
   const esConfig = {
     ...baseConfig,
-    input: 'src/entry.ts',
+    input: 'src/index.ts',
     external,
     output: {
       file: 'dist/seatsio-vue.js',
