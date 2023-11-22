@@ -1,4 +1,4 @@
-import type { ChartDesignerConfigOptions, ChartRendererConfigOptions, EventManagerConfigOptions, Region } from "@seatsio/seatsio-types"
+import type { ChartDesignerConfigOptions, ChartRendererConfigOptions, EventManagerConfigOptions, Region } from '@seatsio/seatsio-types'
 
 export * from '@seatsio/seatsio-types'
 
