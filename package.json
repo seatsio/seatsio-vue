@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "scripts": {
     "serve": "vue-cli-service serve dev/serve.ts",
-    "build": "cross-env NODE_ENV=production && rollup --config build/rollup.config.js",
+    "build": "cross-env NODE_ENV=production && rollup --config build/rollup.config.js --format es",
     "prebuild": "rimraf ./dist"
   },
   "module": "dist/seatsio-vue.js",
