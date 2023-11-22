@@ -8,9 +8,9 @@ export default defineComponent<SeatsioEventManagerProps>({
     extends: SeatsioEmbeddable,
     name: 'SeatsioEventManager',
     methods: {
-        finaliseProps: function (props: SeatsioEventManagerProps & { chartKey?: string }) {
-            const { chartJsUrl, id, region, showFullScreenButton, chartKey, ...finalProps } = props
-            return { chart: chartKey, ...finalProps }
+        finaliseProps: function (props: SeatsioEventManagerProps) {
+            const { chartJsUrl, id, region, showFullScreenButton, ...finalProps } = props
+            return { ...finalProps }
         },
         createChart: (seatsio: Seatsio, config: EventManagerConfigOptions) => {
           return new seatsio.EventManager(config)
