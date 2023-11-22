@@ -1,10 +1,11 @@
 <script lang="ts">
-import type { EventManagerConfigOptions, Seatsio, SeatsioEventManagerProps } from "../types"
+import type { EventManagerConfigOptions, Seatsio } from '@seatsio/seatsio-types'
+import type { SeatsioEventManagerProps } from '../types'
 import SeatsioEmbeddable from './seatsioEmbeddable.vue'
-import { defineComponent } from "vue"
+import { defineComponent } from 'vue'
 
 export default defineComponent<SeatsioEventManagerProps>({
-    mixins: [SeatsioEmbeddable],
+    extends: SeatsioEmbeddable,
     name: 'SeatsioEventManager',
     methods: {
         finaliseProps: function (props: SeatsioEventManagerProps & { chartKey?: string }) {

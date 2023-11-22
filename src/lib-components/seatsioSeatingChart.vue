@@ -1,7 +1,8 @@
 <script lang="ts">
-import type { ChartRendererConfigOptions, Seatsio, SeatsioSeatingChartProps } from "../types";
+import type { ChartRendererConfigOptions, Seatsio } from '@seatsio/seatsio-types'
+import type { SeatsioSeatingChartProps } from '../types'
 import SeatsioEmbeddable from './seatsioEmbeddable.vue'
-import { defineComponent } from "vue";
+import { defineComponent } from 'vue'
 
 export default defineComponent<SeatsioSeatingChartProps>({
   extends: SeatsioEmbeddable,
@@ -9,7 +10,6 @@ export default defineComponent<SeatsioSeatingChartProps>({
   name: 'SeatsioSeatingChart',
   methods: {
     createChart: function (seatsio: Seatsio, config: ChartRendererConfigOptions) {
-      console.log('Yolo, creating chart')
       return new seatsio.SeatingChart(config)
     }
   }
