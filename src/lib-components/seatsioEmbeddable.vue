@@ -12,11 +12,7 @@
     props: {
       chartJsUrl: {type: String, default: 'https://cdn-{region}.seatsio.net/chart.js'},
       id: {type: String, default: 'chart'},
-      region: {type: String as PropType<Region>, required: true},
-      language: {
-        type: String as PropType<Language>,
-        required: true
-      }
+      region: {type: String as PropType<Region>, required: true}
     },
     methods: {
       createAndRenderChart: async function () {
