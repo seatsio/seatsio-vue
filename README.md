@@ -2,6 +2,14 @@
 
 Vue wrapper for rendering [Seats.io](https://www.seats.io) seating charts. Brought to you by the Seats.io team.
 
+# Recommended tools
+
+This package uses TypeScript. In order to get the best possible developer experience, you may need some Vue plugins for your IDE. If you use Visual Studio Code, we recommend the following plugins (direct extension links):
+- [Vue Language Features (Volar)](vscode:extension/Vue.volar)
+- [TypeScript Vue Plugin](vscode:extension/Vue.vscode-typescript-vue-plugin)
+
+If you use a different IDE, there may be similar plugins available.
+
 # Installation
 
 ```

@@ -1,19 +1,22 @@
-<script>
+<script lang="ts">
+import type { EventManagerConfigOptions, Seatsio } from '@seatsio/seatsio-types'
+import type { SeatsioEventManagerProps } from '../types'
 import SeatsioEmbeddable from './seatsioEmbeddable.vue'
+import { defineComponent } from 'vue'
 
-export default {
-    mixins: [SeatsioEmbeddable],
+export default defineComponent<SeatsioEventManagerProps>({
+    extends: SeatsioEmbeddable,
     name: 'SeatsioEventManager',
     methods: {
-        finaliseProps: function (props) {
-            const { chartJsUrl, id, region, showFullscreenButton, chartKey, ...finalProps } = props
-            return { chart: chartKey, ...finalProps }
+        finaliseProps: function (props: SeatsioEventManagerProps) {
+            const { chartJsUrl, id, region, showFullScreenButton, ...finalProps } = props
+            return { ...finalProps }
         },
-        createChart: (seatsio, config) => {
+        createChart: (seatsio: Seatsio, config: EventManagerConfigOptions) => {
           return new seatsio.EventManager(config)
         }
     }
-}
+})
 </script>
 
 <template>

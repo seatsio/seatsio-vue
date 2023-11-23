@@ -1,16 +1,14 @@
-<script>
+<script lang="ts">
 import ComponentSelector from './componentSelector.vue'
-import SeatsioSeatingChart from '@/lib-components/seatsioSeatingChart.vue'
-import SeatsioChartManager from '@/lib-components/seatsioChartManager.vue'
-import SeatsioDesigner from '@/lib-components/seatsioDesigner.vue'
-import SeatsioEventManager from '@/lib-components/seatsioEventManager.vue'
+import SeatsioSeatingChart from '../src/lib-components/seatsioSeatingChart.vue'
+import SeatsioDesigner from '../src/lib-components/seatsioDesigner.vue'
+import SeatsioEventManager from '../src/lib-components/seatsioEventManager.vue'
 
 export default {
     name: 'ServeDev',
     components: {
       ComponentSelector,
       SeatsioSeatingChart,
-      SeatsioChartManager,
       SeatsioDesigner,
       SeatsioEventManager
     },
@@ -67,19 +65,7 @@ export default {
       @renderStarted="onRenderStarted"
       @objectClicked="onObjectClicked"
       chartKey="0bcf8295-0063-486b-85fe-77b8d85008b5"
-    />
-    <SeatsioChartManager
-        v-if="selectedComponent === 'chartManager'"
-        region="eu"
-        id="myChartManager"
-        mode="manageRulesets"
-        :chartJsUrl="chartJsUrl"
-        :messages="messages"
-        :tooltipInfo="tooltipInfo"
-        @renderStarted="onRenderStarted"
-        @objectClicked="onObjectClicked"
-        chart="0bcf8295-0063-486b-85fe-77b8d85008b5"
-        secretKey="demoKey"
+      secretKey="demoKey"
     />
     <SeatsioEventManager
         v-if="selectedComponent === 'eventManager'"

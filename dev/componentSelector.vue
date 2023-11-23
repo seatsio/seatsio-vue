@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 export default {
   name: 'ComponentSelector',
   methods: {
@@ -13,7 +13,6 @@ export default {
   <ul id="menu">
       <li><button @click="onClick('seatingChart')">Seating Chart</button></li>
       <li><button @click="onClick('chartDesigner')">Designer</button></li>
-      <li><button @click="onClick('chartManager')">ChartManager</button></li>
       <li><button @click="onClick('eventManager')">EventManager</button></li>
     </ul>
 </template>
