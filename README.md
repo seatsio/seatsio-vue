@@ -44,17 +44,20 @@ The chart uses 100 % of the width and height of the DOM element (e.g. a div) in 
 
 ```vue
 import { SeatsioSeatingChart } from '@seatsio/seatsio-vue';
+import { Pricing } from "@seatsio/seatsio-types";
+
+const pricing: Pricing = [
+    { category: 1, price: 30 },
+    { category: 2, price: 40 },
+    { category: 3, price: 50 }
+]
 
 <div style="height: 500px">
     <SeatsioSeatingChart
         workspaceKey="<yourPublicWorkspaceKey>"
         event="<yourEventKey>"
         region="eu"
-        :pricing="[
-            {'category': 1, 'price': 30},
-            {'category': 2, 'price': 40},
-            {'category': 3, 'price': 50}
-        ]"
+        :pricing="pricing"
     />
 </div>
 ```

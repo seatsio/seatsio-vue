@@ -1,7 +1,5 @@
 import type { ChartDesigner, ChartDesignerConfigOptions, ChartRendererConfigOptions, EventManager, EventManagerConfigOptions, Region, SeatingChart, Seatsio } from '@seatsio/seatsio-types'
 
-export type * from '@seatsio/seatsio-types'
-
 export type SeatsioConfig = ChartRendererConfigOptions | EventManagerConfigOptions | ChartDesignerConfigOptions
 
 export interface SeatsioEmbeddableProps {
