@@ -1,4 +1,4 @@
-# seatsio-vue, the official Seats.io Vue wrapper
+# seatsio-vue, the official Seats.io Vue SDK
 
 Vue wrapper for rendering [Seats.io](https://www.seats.io) seating charts. Brought to you by the Seats.io team.
 
