@@ -10,7 +10,7 @@
   "types": "dist/index.d.ts",
   "files": ["dist"],
   "dependencies": {
-    "@seatsio/seatsio-types": "^2.0.0"
+    "@seatsio/seatsio-types": "^2.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9",
