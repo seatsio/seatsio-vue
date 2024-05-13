@@ -6,7 +6,7 @@
     "build": "cross-env NODE_ENV=production && rollup --config build/rollup.config.js --format es",
     "prebuild": "rimraf ./dist"
   },
-  "module": "dist/seatsio-vue.js",
+  "main": "dist/seatsio-vue.js",
   "types": "dist/index.d.ts",
   "files": ["dist"],
   "dependencies": {
