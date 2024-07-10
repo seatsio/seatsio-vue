@@ -3,6 +3,14 @@ import ComponentSelector from './componentSelector.vue'
 import SeatsioSeatingChart from '../src/lib-components/seatsioSeatingChart.vue'
 import SeatsioDesigner from '../src/lib-components/seatsioDesigner.vue'
 import SeatsioEventManager from '../src/lib-components/seatsioEventManager.vue'
+import { Region, SeatingChart } from '@seatsio/seatsio-types'
+
+type Language = 'en' | 'de' | 'fr'
+const languages: Language[] = [
+  'en',
+  'de',
+  'fr'
+]
 
 export default {
     name: 'ServeDev',
@@ -20,7 +28,9 @@ export default {
       selectedComponent: 'seatingChart',
       objectColor: () => 'purple',
       tooltipInfo: () => 'My custom info',
-      chartJsUrl: 'https://cdn-staging-eu.seatsio.net/chart.js'
+      chartJsUrl: 'https://cdn-staging-eu.seatsio.net/chart.js',
+      language: 'en' as Language,
+      languages
     }),
     methods: {
       onRenderStarted: chart => console.log('Render started', chart),
@@ -32,13 +42,16 @@ export default {
 
 <template>
   <ComponentSelector @selectChartType="component => selectedComponent = component" />
+  <select v-model="language" v-if="selectedComponent !== 'chartDesigner'">
+    <option v-for="option in languages" :value="option">{{option}}</option>
+  </select>
   <SeatsioSeatingChart
         v-if="selectedComponent === 'seatingChart'"
         id="myChart"
         workspaceKey="publicDemoKey"
         event="smallTheatreEvent"
         region="eu"
-        language="en"
+        :language="language"
         :chartJsUrl="chartJsUrl"
         :messages="messages"
         :objectColor="objectColor"
@@ -58,6 +71,7 @@ export default {
       id="myChartDesigner"
       workspaceKey="publicDemoKey"
       mode="readOnly"
+      language="en"
       :chartJsUrl="chartJsUrl"
       :show-fullscreen-button="true"
       :messages="messages"
@@ -72,6 +86,7 @@ export default {
         region="eu"
         id="myEventManager"
         mode="manageCategories"
+        :language="language"
         :chartJsUrl="chartJsUrl"
         :messages="messages"
         :tooltipInfo="tooltipInfo"
