@@ -3,7 +3,6 @@ import ComponentSelector from './componentSelector.vue'
 import SeatsioSeatingChart from '../src/lib-components/seatsioSeatingChart.vue'
 import SeatsioDesigner from '../src/lib-components/seatsioDesigner.vue'
 import SeatsioEventManager from '../src/lib-components/seatsioEventManager.vue'
-import { Region, SeatingChart } from '@seatsio/seatsio-types'
 
 type Language = 'en' | 'de' | 'fr'
 const languages: Language[] = [
