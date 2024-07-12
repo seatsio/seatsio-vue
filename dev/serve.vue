@@ -4,6 +4,13 @@ import SeatsioSeatingChart from '../src/lib-components/seatsioSeatingChart.vue'
 import SeatsioDesigner from '../src/lib-components/seatsioDesigner.vue'
 import SeatsioEventManager from '../src/lib-components/seatsioEventManager.vue'
 
+type Language = 'en' | 'de' | 'fr'
+const languages: Language[] = [
+  'en',
+  'de',
+  'fr'
+]
+
 export default {
     name: 'ServeDev',
     components: {
@@ -20,7 +27,9 @@ export default {
       selectedComponent: 'seatingChart',
       objectColor: () => 'purple',
       tooltipInfo: () => 'My custom info',
-      chartJsUrl: 'https://cdn-staging-eu.seatsio.net/chart.js'
+      chartJsUrl: 'https://cdn-staging-eu.seatsio.net/chart.js',
+      language: 'en' as Language,
+      languages
     }),
     methods: {
       onRenderStarted: chart => console.log('Render started', chart),
@@ -32,13 +41,16 @@ export default {
 
 <template>
   <ComponentSelector @selectChartType="component => selectedComponent = component" />
+  <select v-model="language">
+    <option v-for="option in languages" :value="option">{{option}}</option>
+  </select>
   <SeatsioSeatingChart
         v-if="selectedComponent === 'seatingChart'"
         id="myChart"
         workspaceKey="publicDemoKey"
         event="smallTheatreEvent"
         region="eu"
-        language="en"
+        :language="language"
         :chartJsUrl="chartJsUrl"
         :messages="messages"
         :objectColor="objectColor"
@@ -58,6 +70,7 @@ export default {
       id="myChartDesigner"
       workspaceKey="publicDemoKey"
       mode="readOnly"
+      :language="language"
       :chartJsUrl="chartJsUrl"
       :show-fullscreen-button="true"
       :messages="messages"
@@ -72,6 +85,7 @@ export default {
         region="eu"
         id="myEventManager"
         mode="manageCategories"
+        :language="language"
         :chartJsUrl="chartJsUrl"
         :messages="messages"
         :tooltipInfo="tooltipInfo"

@@ -12,7 +12,8 @@
     props: {
       chartJsUrl: {type: String, default: 'https://cdn-{region}.seatsio.net/chart.js'},
       id: {type: String, default: 'chart'},
-      region: {type: String as PropType<Region>, required: true}
+      region: {type: String as PropType<Region>, required: true},
+      language: {type: String as PropType<Language>, default: 'en'}
     },
     methods: {
       createAndRenderChart: async function () {
@@ -69,6 +70,19 @@
       getRegion: function () {
         return this.$props.region
       }
+    },
+    watch: {
+      $props: {
+        handler: function() {
+          const chart = (this as any).chart
+          chart.config = {
+            ...chart.config,
+            ...this.propsAndAttrs()
+          }
+          chart.rerender()
+        },
+        deep: true,
+      },
     }
   })
 </script>
