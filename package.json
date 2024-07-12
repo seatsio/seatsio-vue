@@ -1,6 +1,6 @@
 {
   "name": "@seatsio/seatsio-vue",
-  "version": "3.6.0",
+  "version": "3.7.0",
   "scripts": {
     "serve": "vue-cli-service serve dev/serve.ts",
     "build": "cross-env NODE_ENV=production && rollup --config build/rollup.config.js --format es",
