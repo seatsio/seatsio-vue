@@ -41,7 +41,7 @@ export default {
 
 <template>
   <ComponentSelector @selectChartType="component => selectedComponent = component" />
-  <select v-model="language" v-if="selectedComponent !== 'chartDesigner'">
+  <select v-model="language">
     <option v-for="option in languages" :value="option">{{option}}</option>
   </select>
   <SeatsioSeatingChart
@@ -70,7 +70,7 @@ export default {
       id="myChartDesigner"
       workspaceKey="publicDemoKey"
       mode="readOnly"
-      language="en"
+      :language="language"
       :chartJsUrl="chartJsUrl"
       :show-fullscreen-button="true"
       :messages="messages"

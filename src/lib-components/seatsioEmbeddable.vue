@@ -74,14 +74,12 @@
     watch: {
       $props: {
         handler: function() {
-          if (this.$options.name !== 'SeatsioDesigner') {
-            const chart = (this as any).chart
-            chart.config = {
-              ...chart.config,
-              ...this.propsAndAttrs()
-            }
-            chart.rerender()
+          const chart = (this as any).chart
+          chart.config = {
+            ...chart.config,
+            ...this.propsAndAttrs()
           }
+          chart.rerender()
         },
         deep: true,
       },
