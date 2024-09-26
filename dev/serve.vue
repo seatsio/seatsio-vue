@@ -40,28 +40,29 @@ export default {
 </script>
 
 <template>
-  <ComponentSelector @selectChartType="component => selectedComponent = component" />
-  <select v-model="language">
-    <option v-for="option in languages" :value="option">{{option}}</option>
-  </select>
-  <SeatsioSeatingChart
-        v-if="selectedComponent === 'seatingChart'"
-        workspaceKey="publicDemoKey"
-        event="smallTheatreEvent"
-        region="eu"
-        :language="language"
-        :chartJsUrl="chartJsUrl"
-        :messages="messages"
-        :objectColor="objectColor"
-        :tooltipInfo="tooltipInfo"
-        :priceFormatter="priceFormatter"
-        @renderStarted="onRenderStarted"
-        @objectClicked="onObjectClicked"
-        :pricing="[
-          { category: 1, price: 30 },
-          { category: 2, price: 40 },
-          { category: 3, price: 50 }
-        ]"
+  <div style="height: 100vh">
+    <ComponentSelector @selectChartType="component => selectedComponent = component" />
+    <select v-model="language">
+      <option v-for="option in languages" :value="option">{{option}}</option>
+    </select>
+    <SeatsioSeatingChart
+      v-if="selectedComponent === 'seatingChart'"
+      workspaceKey="publicDemoKey"
+      event="smallTheatreEvent"
+      region="eu"
+      :language="language"
+      :chartJsUrl="chartJsUrl"
+      :messages="messages"
+      :objectColor="objectColor"
+      :tooltipInfo="tooltipInfo"
+      :priceFormatter="priceFormatter"
+      @renderStarted="onRenderStarted"
+      @objectClicked="onObjectClicked"
+      :pricing="[
+        { category: 1, price: 30 },
+        { category: 2, price: 40 },
+        { category: 3, price: 50 }
+      ]"
     />
     <SeatsioDesigner
       v-if="selectedComponent === 'chartDesigner'"
@@ -91,10 +92,5 @@ export default {
         event="smallTheatreEvent"
         secretKey="demoKey"
     />
+  </div>
 </template>
-
-<style scoped>
-#myChart, #myChartDesigner, #myChartManager, #myEventManager {
-  height: 100vh
-}
-</style>
