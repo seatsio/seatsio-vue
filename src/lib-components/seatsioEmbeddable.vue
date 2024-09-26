@@ -87,12 +87,5 @@
 </script>
 
 <template>
-  <div ref="container" class="chart-container"></div>
+  <div ref="container" style="width: 100%; height: 100%;"></div>
 </template>
-
-<style>
-.chart-container {
-  height: 100%;
-  width: 100%;
-}
-</style>
