@@ -46,7 +46,6 @@ export default {
   </select>
   <SeatsioSeatingChart
         v-if="selectedComponent === 'seatingChart'"
-        id="myChart"
         workspaceKey="publicDemoKey"
         event="smallTheatreEvent"
         region="eu"
@@ -67,7 +66,6 @@ export default {
     <SeatsioDesigner
       v-if="selectedComponent === 'chartDesigner'"
       region="eu"
-      id="myChartDesigner"
       workspaceKey="publicDemoKey"
       mode="readOnly"
       :language="language"
@@ -83,7 +81,6 @@ export default {
     <SeatsioEventManager
         v-if="selectedComponent === 'eventManager'"
         region="eu"
-        id="myEventManager"
         mode="manageCategories"
         :language="language"
         :chartJsUrl="chartJsUrl"

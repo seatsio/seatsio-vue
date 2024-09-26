@@ -18,7 +18,3 @@ export default defineComponent<SeatsioEventManagerProps>({
     }
 })
 </script>
-
-<template>
-  <div :id="id"></div>
-</template>

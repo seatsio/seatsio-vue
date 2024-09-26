@@ -14,7 +14,3 @@ export default defineComponent<SeatsioChartDesignerProps>({
   }
 })
 </script>
-
-<template>
-  <div :id="id"></div>
-</template>
