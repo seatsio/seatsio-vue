@@ -15,7 +15,3 @@ export default defineComponent<SeatsioSeatingChartProps>({
   }
 })
 </script>
-
-<template>
-  <div :id="id"></div>
-</template>

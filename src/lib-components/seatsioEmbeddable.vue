@@ -22,10 +22,9 @@
         }
 
         const seatsio = await this.getSeatsio()
-
         const config = {
-          divId: this.$props.id,
-          ...this.propsAndAttrs()
+          ...this.propsAndAttrs(),
+          container: this.$refs.container
         }
         // @ts-ignore
         this.chart = this.createChart(seatsio, config).render()
@@ -86,3 +85,7 @@
     }
   })
 </script>
+
+<template>
+  <div ref="container" style="width: 100%; height: 100%;"></div>
+</template>
