@@ -34,8 +34,8 @@
         }
       },
       propsAndAttrs: function () {
-        let allPropsAndAttrs = {...this.$props, ...this.$attrs};
         // @ts-ignore
+        let allPropsAndAttrs = {...this.$props, ...this.$attrs};
         let { id, onRenderStarted, chartJsUrl, region, ...filteredPropsAndAttrs } = allPropsAndAttrs
         return filteredPropsAndAttrs
       },
