@@ -1132,10 +1132,10 @@
     estree-walker "^2.0.2"
     picomatch "^2.3.1"
 
-"@seatsio/seatsio-types@5.9.0":
-  version "5.9.0"
-  resolved "https://registry.yarnpkg.com/@seatsio/seatsio-types/-/seatsio-types-5.9.0.tgz#e7f1f7682a318798e05fabf0238a5de5938501ec"
-  integrity sha512-9VxRW9+ua3/aZ7epPsrzta/YTgUxnfeE6E67iZZCIBm0wjBQJMooZMXAwCtNr/0CNZ+VSssXtD2mjAXOXGlUSg==
+"@seatsio/seatsio-types@5.10.0":
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/@seatsio/seatsio-types/-/seatsio-types-5.10.0.tgz#07c0daf446f7074813215e9ee763d954e6601d2f"
+  integrity sha512-thUJdvzTkBxfuEbHxlnZD633f2vP9laVoX9DWArCstdE2J1q69AHEOINhsKZ64EMMM2L7S0KIWjIA92g3gzeFA==
 
 "@sideway/address@^4.1.5":
   version "4.1.5"
