@@ -15,11 +15,11 @@
     "@seatsio/seatsio-types": "6.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.27.4",
+    "@babel/core": "^7.27.7",
     "@babel/preset-env": "^7.27.2",
     "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-babel": "^6.0.4",
-    "@rollup/plugin-commonjs": "^28.0.3",
+    "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-replace": "^6.0.2",
     "@vue/cli-plugin-babel": "^5.0.8",
@@ -35,8 +35,8 @@
     "rollup-plugin-vue": "^6.0.0",
     "semver": "7.7.2",
     "typescript": "~5.8.3",
-    "vue": "3.5.16",
-    "zx": "8.5.4"
+    "vue": "3.5.17",
+    "zx": "8.6.1"
   },
   "peerDependencies": {
     "vue": "^3.2.47"
