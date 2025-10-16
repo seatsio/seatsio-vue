@@ -31,7 +31,7 @@ import { SeatsioSeatingChart } from '@seatsio/seatsio-vue';
 
 <div style="height: 500px">
     <SeatsioSeatingChart
-        workspaceKey="<yourPublicWorkspaceKey>"
+        workspace-key="<yourPublicWorkspaceKey>"
         event="<yourEventKey>"
         region="eu"
     />
@@ -79,7 +79,7 @@ const pricing: Pricing = {
 
 <div style="height: 500px">
     <SeatsioSeatingChart
-        workspaceKey="<yourPublicWorkspaceKey>"
+        workspace-key="<yourPublicWorkspaceKey>"
         event="<yourEventKey>"
         region="eu"
         :pricing="pricing"
@@ -113,9 +113,9 @@ export default {
 // Notice how the event handler is defined with @&lt;eventListener&gt;
 // For more information, see https://vuejs.org/guide/essentials/event-handling.html
 <SeatsioSeatingChart
-    workspaceKey="<yourPublicWorkspaceKey>"
+    workspace-key="<yourPublicWorkspaceKey>"
     event="<yourEventKey>"
-    @renderStarted="onRenderStarted"
+    @render-started="onRenderStarted"
     region="eu"
 />
 ```
@@ -141,9 +141,9 @@ export default {
 }
 
 <SeatsioSeatingChart
-    workspaceKey="<yourPublicWorkspaceKey>"
+    workspace-key="<yourPublicWorkspaceKey>"
     event="<yourEventKey>"
-    @chartRendered="onChartRendered"
+    @chart-rendered="onChartRendered"
     region="eu"
 />
 ```
@@ -162,10 +162,10 @@ export default {
 }
 
 <SeatsioSeatingChart
-    workspaceKey="<yourPublicWorkspaceKey>"
+    workspace-key="<yourPublicWorkspaceKey>"
     event="<yourEventKey>"
     region="eu"
-    :objectColor="objectColor"
+    :object-color="objectColor"
 />
 ```
 
@@ -178,7 +178,7 @@ import { SeatsioEventManager } from '@seatsio/seatsio-vue';
 
 <div style="height: 500px">
     <SeatsioEventManager
-        secretKey="<yourWorkspaceSecretKey>"
+        secret-key="<yourWorkspaceSecretKey>"
         event="<yourEventKey>"
         mode="<manageObjectStatuses or another mode>"
         region="eu"
@@ -197,9 +197,9 @@ import { SeatsioDesigner } from '@seatsio/seatsio-vue';
 
 <div style="height: 500px">
     <SeatsioDesigner
-        secretKey="<yourWorkspaceSecretKey>"
+        secret-key="<yourWorkspaceSecretKey>"
         region="eu"
-        @chartCreated="onChartCreated"
+        @chart-created="onChartCreated"
     />
 </div>
 ```
@@ -208,8 +208,8 @@ To be able to edit a chart from an embedded designer, you need to specify the ch
  
 ```vue
 <SeatsioDesigner
-    secretKey="<yourWorkspaceSecretKey>"    
-    chartKey="<yourChartKey>"
+    secret-key="<yourWorkspaceSecretKey>"    
+    chart-key="<yourChartKey>"
     region="eu"
 />
 ```
