@@ -4,7 +4,8 @@
   "scripts": {
     "serve": "vue-cli-service serve dev/serve.ts",
     "build": "cross-env NODE_ENV=production && rollup --config build/rollup.config.js --format es",
-    "prebuild": "rimraf ./dist"
+    "prebuild": "rimraf ./dist",
+    "test": "vitest"
   },
   "main": "dist/seatsio-vue.js",
   "types": "dist/index.d.ts",
@@ -12,7 +13,8 @@
     "dist"
   ],
   "dependencies": {
-    "@seatsio/seatsio-types": "6.4.0"
+    "@seatsio/seatsio-types": "6.4.0",
+    "@vue/shared": "^3.5.22"
   },
   "devDependencies": {
     "@babel/core": "^7.28.4",
@@ -22,11 +24,14 @@
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@rollup/plugin-replace": "^6.0.2",
+    "@vitejs/plugin-vue": "^6.0.1",
     "@vue/cli-plugin-babel": "^5.0.9",
     "@vue/cli-plugin-typescript": "~5.0.9",
     "@vue/cli-service": "^5.0.9",
+    "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.8.1",
     "cross-env": "^10.1.0",
+    "happy-dom": "^20.0.2",
     "minimist": "^1.2.8",
     "rimraf": "^6.0.1",
     "rollup": "^2.79.2",
@@ -35,6 +40,7 @@
     "rollup-plugin-vue": "^6.0.0",
     "semver": "7.7.2",
     "typescript": "~5.9.3",
+    "vitest": "^3.2.4",
     "vue": "3.5.22",
     "zx": "8.8.4"
   },
@@ -42,5 +48,6 @@
     "vue": "^3.2.47"
   },
   "license": "MIT",
-  "sideEffects": false
+  "sideEffects": false,
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
