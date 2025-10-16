@@ -1,15 +1,15 @@
 // rollup.config.js
-import fs from 'fs';
-import path from 'path';
-import vue from 'rollup-plugin-vue';
 import alias from '@rollup/plugin-alias';
+import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
-import babel from '@rollup/plugin-babel';
-import { terser } from 'rollup-plugin-terser';
+import fs from 'fs';
 import minimist from 'minimist';
+import path from 'path';
+import { terser } from 'rollup-plugin-terser';
 import typescript from 'rollup-plugin-typescript2';
+import vue from 'rollup-plugin-vue';
 
 // Get browserslist config and remove ie from es build targets
 const esbrowserslist = fs.readFileSync('./.browserslistrc')
@@ -92,7 +92,9 @@ if (!argv.format || argv.format === 'es') {
       exports: 'named',
     },
     plugins: [
-      typescript(),
+      typescript({
+        tsconfig: path.resolve(projectRoot, 'tsconfig.compile.json')
+      }),
       replace(baseConfig.plugins.replace),
       ...baseConfig.plugins.preVue,
       vue(baseConfig.plugins.vue),
