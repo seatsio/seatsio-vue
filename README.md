@@ -40,6 +40,28 @@ import { SeatsioSeatingChart } from '@seatsio/seatsio-vue';
 
 The chart uses 100 % of the width and height of the DOM element (e.g. a div) in which you render it. Play with the size of that element to change the chart size.
 
+### Prop naming convention
+
+Following Vue.js conventions, all component props can be passed using either kebab-case or camelCase. Both formats are fully supported:
+
+```vue
+<!-- Using kebab-case (Vue convention) -->
+<SeatsioSeatingChart
+    workspace-key="<yourPublicWorkspaceKey>"
+    event="<yourEventKey>"
+    region="eu"
+/>
+
+<!-- Using camelCase -->
+<SeatsioSeatingChart
+    workspaceKey="<yourPublicWorkspaceKey>"
+    event="<yourEventKey>"
+    region="eu"
+/>
+```
+
+Both examples work identically. For consistency with other Vue components, kebab-case is recommended when using props in templates.
+
 ### Pricing
 
 ```vue

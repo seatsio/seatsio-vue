@@ -12,7 +12,8 @@
     "dist"
   ],
   "dependencies": {
-    "@seatsio/seatsio-types": "6.4.0"
+    "@seatsio/seatsio-types": "6.4.0",
+    "@vue/shared": "^3.5.22"
   },
   "devDependencies": {
     "@babel/core": "^7.28.4",
@@ -44,3 +45,4 @@
   "license": "MIT",
   "sideEffects": false
 }
+

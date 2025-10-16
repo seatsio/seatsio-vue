@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Language, Region } from '@seatsio/seatsio-types'
   import { PropType, defineComponent } from 'vue'
+  import { normalizeAttrs } from '../utils/propNormalizer'
 
   export default defineComponent({
     mounted() {
@@ -34,7 +35,8 @@
         }
       },
       propsAndAttrs: function () {
-        let allPropsAndAttrs = {...this.$props, ...this.$attrs};
+        const normalizedAttrs = normalizeAttrs(this.$attrs)
+        let allPropsAndAttrs = {...this.$props, ...normalizedAttrs};
         // @ts-ignore
         let { id, onRenderStarted, chartJsUrl, region, ...filteredPropsAndAttrs } = allPropsAndAttrs
         return filteredPropsAndAttrs
