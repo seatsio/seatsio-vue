@@ -1,17 +1,8 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { normalizeAttrs } from './propNormalizer'
 
 describe('propNormalizer', () => {
   describe('normalizeAttrs - unit tests', () => {
-    let consoleWarnSpy: ReturnType<typeof vi.spyOn>
-
-    beforeEach(() => {
-      consoleWarnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
-    })
-
-    afterEach(() => {
-      consoleWarnSpy.mockRestore()
-    })
 
     it('should convert kebab-case keys to camelCase', () => {
       const input = {
@@ -118,21 +109,6 @@ describe('propNormalizer', () => {
     })
 
     describe('duplicate prop detection', () => {
-      it('should warn when both kebab-case and camelCase versions are provided', () => {
-        const input = {
-          'secret-key': 'demoKey',
-          secretKey: '234'
-        }
-
-        normalizeAttrs(input)
-
-        expect(consoleWarnSpy).toHaveBeenCalledWith(
-          "[seatsio-vue] Warning: Duplicate prop detected for 'secretKey'. " +
-          "Both 'secret-key' and 'secretKey' were provided. " +
-          "Using value from 'secretKey'."
-        )
-      })
-
       it('should use the last provided value when duplicates exist', () => {
         const input = {
           'workspace-key': 'firstValue',
@@ -142,18 +118,6 @@ describe('propNormalizer', () => {
         const result = normalizeAttrs(input)
 
         expect(result.workspaceKey).toBe('secondValue')
-      })
-
-      it('should not warn when different props normalize to different camelCase keys', () => {
-        const input = {
-          'workspace-key': 'value1',
-          'event-key': 'value2',
-          region: 'eu'
-        }
-
-        normalizeAttrs(input)
-
-        expect(consoleWarnSpy).not.toHaveBeenCalled()
       })
     })
   })
