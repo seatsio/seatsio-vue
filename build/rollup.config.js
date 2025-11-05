@@ -1,5 +1,4 @@
 // rollup.config.js
-import alias from '@rollup/plugin-alias';
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
@@ -28,16 +27,7 @@ const projectRoot = path.resolve(__dirname, '..');
 const baseConfig = {
   input: 'src/index.ts',
   plugins: {
-    preVue: [
-      alias({
-        entries: [
-          {
-            find: '@',
-            replacement: `${path.resolve(projectRoot, 'src')}`,
-          },
-        ],
-      }),
-    ],
+    preVue: [],
     replace: {
       'process.env.NODE_ENV': JSON.stringify('production'),
       preventAssignment: true
