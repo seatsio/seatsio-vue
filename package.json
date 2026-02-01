@@ -14,11 +14,11 @@
   ],
   "dependencies": {
     "@seatsio/seatsio-types": "6.6.0",
-    "@vue/shared": "3.5.26"
+    "@vue/shared": "3.5.27"
   },
   "devDependencies": {
-    "@babel/core": "7.28.5",
-    "@babel/preset-env": "7.28.5",
+    "@babel/core": "7.29.0",
+    "@babel/preset-env": "7.29.0",
     "@rollup/plugin-babel": "6.1.0",
     "@rollup/plugin-commonjs": "29.0.0",
     "@rollup/plugin-node-resolve": "16.0.3",
@@ -30,7 +30,7 @@
     "@vue/test-utils": "2.4.6",
     "@vue/tsconfig": "0.8.1",
     "cross-env": "10.1.0",
-    "happy-dom": "20.0.11",
+    "happy-dom": "20.4.0",
     "minimist": "1.2.8",
     "rimraf": "6.1.2",
     "rollup": "2.79.2",
@@ -39,8 +39,8 @@
     "rollup-plugin-vue": "6.0.0",
     "semver": "7.7.3",
     "typescript": "~5.9.3",
-    "vitest": "4.0.16",
-    "vue": "3.5.26",
+    "vitest": "4.0.18",
+    "vue": "3.5.27",
     "zx": "8.8.5"
   },
   "peerDependencies": {
