@@ -13,7 +13,7 @@
     "dist"
   ],
   "dependencies": {
-    "@seatsio/seatsio-types": "6.14.0",
+    "@seatsio/seatsio-types": "6.15.0",
     "@vue/shared": "3.5.29"
   },
   "devDependencies": {
